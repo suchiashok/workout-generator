@@ -22,14 +22,14 @@ export default function Form({
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <label>How many exercises?</label>
+      <label>Number of exercises: </label>
       <input
         required
         value={numExercises}
         onChange={handleNumExercisesChange}
         type="number"
       ></input>
-      <label>How many minutes this workout?</label>
+      <label>Workout duration: </label>
       <input
         required
         value={timeInput}

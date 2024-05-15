@@ -1,0 +1,33 @@
+@use "../../styles/typography";
+
+.start {
+  background-image: url(../../assets/start-bg.webp);
+  background-size: cover;
+  height: 40rem;
+  background-color: rgba(black, 0.5);
+
+  &__bg {
+    background-color: rgba(black, 0.4);
+    height: 40em;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 3.6rem;
+    padding-left: 3rem;
+    padding-top: 3rem;
+  }
+  &__button {
+    height: 3rem;
+    width: 15rem;
+    background-color: black;
+    color: white;
+    font-size: 1.1rem;
+    font-style: italic;
+    border-radius: 1.5rem;
+    border-color: black;
+    position: absolute;
+    right: 3rem;
+    bottom: 16rem;
+  }
+}
