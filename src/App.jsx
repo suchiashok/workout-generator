@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import Workout from "./components/Workout/Workout";
+import Form from "./components/Form/Form";
 
 const API_URL = "http://localhost:8000/exercises/exercises";
 
 function App() {
   const [exercises, setExercises] = useState([]);
+  const [numExercises, setNumExercises] = useState(null);
+  const [timeInput, setTimeInput] = useState(null);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -21,18 +26,28 @@ function App() {
     fetchExercises();
   }, []);
 
+  const handleSubmit = () => {
+    setFormSubmitted(true);
+  };
+
   return (
-    <>
-    
-    </>
-  //  <div>
-  //   {exercises.length > 0 && exercises.map((exercise) => (
-  //     <div key={exercise.id}>
-  //       <h2>{exercise.name}</h2>
-  //       <p>{exercise.description}</p>
-  //     </div>
-  //   ))}
-  // </div>
+    <div>
+      <Form
+        numExercises={numExercises}
+        setNumExercises={setNumExercises}
+        setTimeInput={setTimeInput}
+        timeInput={timeInput}
+        onSubmit={handleSubmit}
+      />
+
+      {formSubmitted && (
+        <Workout
+          exercises={exercises}
+          numExercises={numExercises}
+          timeInput={timeInput}
+        />
+      )}
+    </div>
   );
 }
 
