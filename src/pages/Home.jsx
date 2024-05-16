@@ -4,9 +4,12 @@ import axios from "axios";
 import Workout from "../components/Workout/Workout";
 import Form from "../components/Form/Form";
 
-const API_URL = "http://localhost:8000/exercises/exercises";
+const API_URL = "http://localhost:8000/exercises/";
 
-function Home() {
+function Home({ username }) {
+  // const {username} = props.location.state ??;
+  console.log(`username`, username);
+
   const [exercises, setExercises] = useState([]);
   const [numExercises, setNumExercises] = useState(null);
   const [timeInput, setTimeInput] = useState(null);
@@ -31,23 +34,27 @@ function Home() {
   };
 
   return (
-    <div>
-      <Form
-        numExercises={numExercises}
-        setNumExercises={setNumExercises}
-        setTimeInput={setTimeInput}
-        timeInput={timeInput}
-        onSubmit={handleSubmit}
-      />
-
-      {formSubmitted && (
-        <Workout
-          exercises={exercises}
+  
+      <section className="home">
+        <Form
           numExercises={numExercises}
+          setNumExercises={setNumExercises}
+          setTimeInput={setTimeInput}
           timeInput={timeInput}
+          onSubmit={handleSubmit}
+          username={username}
         />
-      )}
-    </div>
+ <div className="background">
+        {formSubmitted && (
+          <Workout
+            exercises={exercises}
+            numExercises={numExercises}
+            timeInput={timeInput}
+          />
+        )}
+            </div>
+      </section>
+
   );
 }
 

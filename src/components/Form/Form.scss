@@ -1,4 +1,45 @@
 .form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+
+  &__main {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 14rem;
+    padding-bottom: 16rem;
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+
   }
+  &__label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  &__input,
+  &__button {
+    padding: 1.2rem;
+    border-radius: 0.3125rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  }
+  &__input {
+    border-color: lightgray;
+  }
+  &__button {
+    background-color: #e3b6cf;
+    border: none;
+    color: black;
+    cursor: pointer;
+  }
+  &__button:hover {
+    background-color: #a1718c;
+    transform: scale(1.05);
+  }
+  &__input:hover,
+  &__input:focus,
+  &__button:hover {
+    outline: none;
+  }
+}
